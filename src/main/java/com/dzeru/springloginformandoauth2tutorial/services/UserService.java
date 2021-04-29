@@ -37,12 +37,7 @@ public class UserService implements UserDetailsService
 			return userFindByGoogleUsername;
 		}
 
-		if(userFindByGoogleName != null)
-		{
-			return userFindByGoogleName;
-		}
-
-		return null;
+		return userFindByGoogleName;
 	}
 }
 

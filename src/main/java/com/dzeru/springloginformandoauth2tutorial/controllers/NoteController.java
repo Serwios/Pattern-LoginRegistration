@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 import java.util.List;
@@ -23,8 +24,7 @@ public class NoteController
 	private UserService userService;
 
 	@GetMapping("/notes")
-	public String notes(Principal principal, Model model)
-	{
+	public String notes(Principal principal, Model model) {
 		User user = (User) userService.loadUserByUsername(principal.getName());
 
 		List<Note> notes = noteRepo.findByUserId(user.getId());
@@ -35,8 +35,7 @@ public class NoteController
 	}
 
 	@PostMapping("/addnote")
-	public String addNote(Principal principal, String title, String note)
-	{
+	public String addNote(Principal principal, String title, String note) {
 		User user = (User) userService.loadUserByUsername(principal.getName());
 
 		Note newNote = new Note();
