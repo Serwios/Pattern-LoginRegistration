@@ -12,9 +12,9 @@ public class IndexController {
 	public String index(Principal principal) {
 		if(principal != null) {
 		     
-		 return "redirect:/notes";
+		 return "redirect:/ykw";
 		}
 		
-	 return "index";
+	 return "login";
 	}
 }

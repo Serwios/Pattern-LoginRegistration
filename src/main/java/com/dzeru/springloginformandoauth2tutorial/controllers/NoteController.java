@@ -15,36 +15,13 @@ import java.security.Principal;
 import java.util.List;
 
 @Controller
-public class NoteController
-{
-	@Autowired
-	private NoteRepo noteRepo;
-
+public class NoteController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/notes")
+	@GetMapping("/ykw")
 	public String notes(Principal principal, Model model) {
 		User user = (User) userService.loadUserByUsername(principal.getName());
-
-		List<Note> notes = noteRepo.findByUserId(user.getId());
-		model.addAttribute("notes", notes);
-		model.addAttribute("user", user);
-
-		return "notes";
-	}
-
-	@PostMapping("/addnote")
-	public String addNote(Principal principal, String title, String note) {
-		User user = (User) userService.loadUserByUsername(principal.getName());
-
-		Note newNote = new Note();
-		newNote.setTitle(title);
-		newNote.setNote(note);
-		newNote.setUserId(user.getId());
-
-		noteRepo.save(newNote);
-
-		return "redirect:/notes";
+		return "ykw";
 	}
 }

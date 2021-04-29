@@ -29,7 +29,15 @@ public class RegistrationController
 	}
 
 	@PostMapping("/registration")
-	public String addUser(String name, String username, String password) {
+	public String addUser(String name, String username, String password, String passwordConfirm) {
+		//Треба добавити додатковий html для відображення того, що такий
+		//користувач уже є
+		if (userRepo.findByName(name) != null) {
+			return "registration";
+		} else if (!password.equals(passwordConfirm)){
+			return "registration";
+		}
+
 		User user = new User();
 		user.setName(name);
 		user.setUsername(username);
