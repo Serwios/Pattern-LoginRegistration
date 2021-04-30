@@ -58,6 +58,13 @@ nav ul li a{
     background: black;
 }
 
+.picked_name {
+    color: white;
+    border-color: black;
+    border: 2px;
+    border-radius: 1px;
+}
+
 .checkbtn{
     font-size: 30px;
     color: white;
