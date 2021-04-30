@@ -11,8 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "user")
-public class User implements UserDetails
-{
+public class User implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -147,8 +146,7 @@ public class User implements UserDetails
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "User{" +
 				"id=" + id +
 				", username='" + username + '\'' +
